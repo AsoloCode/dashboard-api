@@ -1,7 +1,7 @@
 import express, {Express} from "express";
 import {Server} from 'http'
 import {LoggerService} from "./logger/logger.service";
-import {UsersController} from "./users/users.controller";
+import {UserController} from "./users/users.controller";
 import {ExeptionFilter} from "./error/exeption.filter";
 import {ILogger} from "./logger/logger.interface";
 import {inject, injectable} from "inversify";
@@ -16,7 +16,7 @@ export class App {
 
 
     constructor(@inject(TYPES.ILogger) private logger: ILogger,
-                @inject(TYPES.UserController) private userController: UsersController,
+                @inject(TYPES.UserController) private userController: UserController,
                 @inject(TYPES.ExeptionFilter) private  exeptionFilter: ExeptionFilter) {
         this.app = express()
         this.port = 8000
