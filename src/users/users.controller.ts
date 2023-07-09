@@ -1,37 +1,26 @@
-import {BaseController} from "../common/base.controller";
-import {LoggerService} from "../logger/logger.service";
-import {NextFunction, Request, Response} from "express";
-import {inject, injectable} from "inversify";
-import {TYPES} from "../../types";
-import {ILogger} from "../logger/logger.interface";
-import 'reflect-metadata'
-import {IUserController} from "./userController.interface";
+import { BaseController } from '../common/base.controller';
+import { NextFunction, Request, Response } from 'express';
+import { inject, injectable } from 'inversify';
+import { TYPES } from '../../types';
+import 'reflect-metadata';
+import { ILogger } from '../logger/logger.interface';
+import { IUserController } from './userController.interface';
 
 @injectable()
-export class UserController extends BaseController implements IUserController{
-    constructor(@inject(TYPES.ILogger) private loggerService: ILogger) {
-        super(loggerService)
-        this.bindRoutes([
-                {path: '/login', method: 'post', func: this.login},
-                {path: '/register', method: 'post', func: this.register}
-            ]
-        )
+export class UserController extends BaseController implements IUserController {
+	constructor(@inject(TYPES.ILogger) private loggerService: ILogger) {
+		super(loggerService);
+		this.bindRoutes([
+			{ path: '/login', method: 'post', func: this.login },
+			{ path: '/register', method: 'post', func: this.register },
+		]);
+	}
 
+	login(req: Request, res: Response, next: NextFunction): void {
+		this.ok(res, 'login');
+	}
 
-    }
-
-    login(req: Request, res: Response, next: NextFunction) {
-        this.ok(res, 'login')
-    }
-
-    register(req: Request, res: Response, next: NextFunction) {
-        this.ok(res, 'register')
-    }
-
+	register(req: Request, res: Response, next: NextFunction): void {
+		this.ok(res, 'register');
+	}
 }
-
-
-
-
-
-
