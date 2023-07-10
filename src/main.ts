@@ -7,11 +7,14 @@ import { Container, ContainerModule, interfaces } from 'inversify';
 import { ILogger } from './logger/logger.interface';
 import { IExeptionFilter } from './error/exeption.filter.interface';
 import { IUserController } from './users/userController.interface';
+import { IUserService } from './users/user.service.interface';
+import { UsersService } from './users/users.service';
 
 export const appBindings = new ContainerModule((bind: interfaces.Bind) => {
 	bind<ILogger>(TYPES.ILogger).to(LoggerService);
 	bind<IExeptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter);
 	bind<IUserController>(TYPES.UserController).to(UserController);
+	bind<IUserService>(TYPES.UserService).to(UsersService);
 	bind<App>(TYPES.Application).to(App);
 });
 
