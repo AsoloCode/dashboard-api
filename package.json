@@ -6,6 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "lint": "eslint ./src/**",
+    "generate": "prisma generate",
     "lint:fix": "eslint ./src/** --fix",
     "start": "node ./dist/main.js",
     "dev": "nodemon",
@@ -15,6 +16,7 @@
   "author": "Artem Solovev",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^4.16.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "class-transformer": "^0.5.1",
@@ -35,6 +37,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.13",
     "prettier": "^2.4.1",
+    "prisma": "^4.16.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   }
