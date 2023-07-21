@@ -80,6 +80,6 @@ __USER_SCHEMA__
             {
                 "id": 2,
                 "email": "userEmail@email.ru",
-            },...
+            }
     ```
    
