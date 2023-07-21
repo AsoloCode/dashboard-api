@@ -14,13 +14,9 @@ __USER_SCHEMA__
    ```JS
    model UserModel{
       id Int @id @default(autoincrement())
-      email String  @unique
-      firstName String
-      lastName String @default("NaN")
-      photo String @default("NaN")
+      email String 
+      name String
       password String
-      gender String @default("NaN")
-      createdOn DateTime @default(now())
    }
 ```
 
